@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1 – Hello Cloud API</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f7fa;
+      padding: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a5f, #2980b9);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    header h1 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+    header p { font-size: 0.95rem; opacity: 0.9; }
+    section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    h2 {
+      font-size: 1.15rem;
+      color: #1e3a5f;
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 500px;
+    }
+    th, td {
+      border: 1px solid #d0d7de;
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eaf1fb;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .placeholder {
+      background: #fff8e1;
+      color: #b36b00;
+      font-style: italic;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+    }
+    .nist-list { list-style: none; padding: 0; }
+    .nist-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    .nist-list li:last-child { border-bottom: none; }
+    .nist-label {
+      font-weight: 600;
+      color: #2980b9;
+    }
+    .qa { margin-bottom: 0.75rem; }
+    .qa p.question {
+      font-weight: 600;
+      color: #1e3a5f;
+      margin-bottom: 0.25rem;
+    }
+    .qa p.answer { margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bài 1 – Hello Cloud API</h1>
+  <p>Đỗ Tuấn Kiệt – MSSV 2324802010265</p>
+</header>
+
+<!-- ======================== A. BẢNG SO SÁNH ======================== -->
+<section>
+  <h2>A. So sánh Máy cá nhân và GitHub Codespace</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>Máy cá nhân</th>
+          <th>Codespace</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Thời gian từ lúc bắt đầu đến khi chạy được <code>node -v</code></td>
+          <td><span class="placeholder">[ĐIỀN: thời gian trên máy cá nhân, VD: ~30 giây]</span></td>
+          <td><span class="placeholder">[ĐIỀN: thời gian trên Codespace, VD: ~60 giây]</span></td>
+        </tr>
+        <tr>
+          <td>Số CPU (từ API)</td>
+          <td><span class="placeholder">[ĐIỀN: số CPU máy cá nhân, VD: 12]</span></td>
+          <td><span class="placeholder">[ĐIỀN: số CPU Codespace, VD: 2]</span></td>
+        </tr>
+        <tr>
+          <td>RAM – memoryGB (từ API)</td>
+          <td><span class="placeholder">[ĐIỀN: RAM máy cá nhân, VD: 15.6 GB]</span></td>
+          <td><span class="placeholder">[ĐIỀN: RAM Codespace, VD: 8 GB]</span></td>
+        </tr>
+        <tr>
+          <td>Hệ điều hành</td>
+          <td><span class="placeholder">[ĐIỀN: HĐH máy cá nhân, VD: Windows_NT 10.0.26100]</span></td>
+          <td><span class="placeholder">[ĐIỀN: HĐH Codespace, VD: Linux 6.x.x]</span></td>
+        </tr>
+        <tr>
+          <td>Cách truy cập từ thiết bị khác</td>
+          <td>Cần cấu hình port forwarding / ngrok hoặc cùng mạng LAN, phức tạp và phụ thuộc firewall</td>
+          <td>Chuyển cổng sang chế độ Public trên tab Ports, truy cập từ bất kỳ thiết bị nào có internet qua URL được cấp</td>
+        </tr>
+        <tr>
+          <td>Chi phí, đo bằng gì</td>
+          <td>Chi phí phần cứng trả trước (mua máy), tiền điện; không đo theo giờ sử dụng</td>
+          <td>Miễn phí 120 core-giờ/tháng (gói Free); vượt mức tính tiền theo core-giờ (compute) và GB-tháng (storage)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ======================== B. 5 ĐẶC TÍNH NIST ======================== -->
+<section>
+  <h2>B. Năm đặc tính điện toán đám mây (NIST) qua thao tác thực tế</h2>
+  <ol class="nist-list">
+    <li>
+      <span class="nist-label">1. Tự phục vụ theo yêu cầu (On-demand self-service):</span>
+      Tạo Codespace chỉ cần nhấn nút "Create codespace" trên GitHub, không cần gửi yêu cầu hay chờ phê duyệt từ quản trị viên. Môi trường phát triển sẵn sàng trong vài chục giây.
+    </li>
+    <li>
+      <span class="nist-label">2. Truy cập mạng rộng (Broad network access):</span>
+      Chuyển cổng 3000 sang chế độ Public trong tab Ports, sau đó dùng điện thoại hoặc máy tính khác mở URL được cấp để truy cập API. Chỉ cần kết nối internet, không phụ thuộc mạng nội bộ.
+    </li>
+    <li>
+      <span class="nist-label">3. Gộp tài nguyên (Resource pooling):</span>
+      Hostname và thông số CPU/RAM trả về từ API cho thấy máy ảo được cấp phát từ kho tài nguyên chung của GitHub. Nhiều người dùng khác nhau chia sẻ cùng hạ tầng vật lý mà không cần biết máy chủ cụ thể nào đang phục vụ.
+    </li>
+    <li>
+      <span class="nist-label">4. Co giãn nhanh (Rapid elasticity):</span>
+      Có thể tạo Codespace mới trong vài chục giây, dừng (Stop) khi không dùng và khởi động lại (Start) khi cần. Chuyển đổi cấu hình máy (2-core → 4-core) cũng chỉ mất thời gian khởi động lại.
+    </li>
+    <li>
+      <span class="nist-label">5. Dịch vụ đo lường được (Measured service):</span>
+      Vào Settings → Billing → Usage trên GitHub để xem mức sử dụng Codespaces được tính theo core-giờ (thời gian × số core) và dung lượng lưu trữ theo GB-tháng. Người dùng biết chính xác tài nguyên đã tiêu thụ.
+    </li>
+  </ol>
+</section>
+
+<!-- ======================== C. CÂU HỎI PHẢN BIỆN ======================== -->
+<section>
+  <h2>C. Câu hỏi phản biện</h2>
+
+  <div class="qa">
+    <p class="question">1. Hostname có đổi sau Stop/Start không? Điều đó nói gì về kho tài nguyên chung?</p>
+    <p class="answer">
+      Hostname có thể thay đổi sau mỗi lần Stop rồi Start lại Codespace. Điều này cho thấy máy ảo không gắn cố định với một máy chủ vật lý cụ thể. Khi dừng, tài nguyên được trả về kho chung (resource pool); khi khởi động lại, hệ thống cấp phát máy ảo trên bất kỳ máy chủ nào còn trống. Đây là minh chứng rõ ràng cho đặc tính gộp tài nguyên: người dùng không kiểm soát và không cần biết tài nguyên vật lý đang ở đâu.
+    </p>
+  </div>
+
+  <div class="qa">
+    <p class="question">2. Codespaces là IaaS, PaaS hay SaaS?</p>
+    <p class="answer">
+      Codespaces phù hợp nhất với mô hình PaaS (Platform as a Service). GitHub quản lý toàn bộ hạ tầng vật lý, hệ điều hành (Linux) và cài sẵn runtime phổ biến (Node.js, Python…). Người dùng chỉ cần đẩy mã nguồn lên và tập trung vào việc phát triển ứng dụng, không cần cài đặt hay quản trị hệ điều hành. So với IaaS, người dùng không quản lý máy ảo ở mức OS; so với SaaS, người dùng vẫn tự viết và triển khai mã nguồn. Do đó PaaS là phân loại hợp lý nhất.
+    </p>
+  </div>
+
+  <div class="qa">
+    <p class="question">3. Hai hạn chế của cách cài môi trường trên từng máy phòng lab mà đám mây khắc phục, và một rủi ro mới đám mây đưa vào?</p>
+    <p class="answer">
+      <strong>Hạn chế 1 – Không đồng nhất môi trường:</strong> Mỗi máy phòng lab có thể khác phiên bản Node.js, thiếu thư viện, hoặc cấu hình khác nhau, dẫn đến lỗi "chạy được trên máy này nhưng không chạy trên máy kia". Codespaces đảm bảo mọi người dùng cùng một image, cùng phiên bản công cụ.
+      <br><br>
+      <strong>Hạn chế 2 – Mất dữ liệu khi đổi máy:</strong> Máy phòng lab thường được reset sau mỗi buổi học; sinh viên phải cài lại môi trường từ đầu. Codespaces lưu trữ trạng thái trên cloud, mở lại bất kỳ lúc nào từ bất kỳ thiết bị nào.
+      <br><br>
+      <strong>Rủi ro mới:</strong> Phụ thuộc vào kết nối internet và nhà cung cấp dịch vụ. Nếu mạng gián đoạn hoặc GitHub gặp sự cố, sinh viên không thể truy cập môi trường làm việc – điều không xảy ra với máy cục bộ chạy hoàn toàn offline.
+    </p>
+  </div>
+</section>
+
+<footer style="text-align:center; color:#888; font-size:0.8rem; padding:1rem 0;">
+  Điện toán đám mây – Bài thực hành 1 – Đỗ Tuấn Kiệt – 2324802010265
+</footer>
+
+</body>
+</html>
