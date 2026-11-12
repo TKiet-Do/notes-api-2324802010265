@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài 1 – Hello Cloud API</title>
+  <title>Báo cáo Thực hành Điện toán đám mây – Bài 1 &amp; Bài 2</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -25,6 +25,27 @@
     }
     header h1 { font-size: 1.5rem; margin-bottom: 0.3rem; }
     header p { font-size: 0.95rem; opacity: 0.9; }
+    .lab-banner {
+      background: #1e3a5f;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin: 1.5rem 0 1rem 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .lab-tag {
+      background: #2980b9;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: normal;
+    }
     section {
       background: #fff;
       border-radius: 8px;
@@ -39,23 +60,36 @@
       padding-bottom: 0.3rem;
       margin-bottom: 0.75rem;
     }
-    .table-wrap { overflow-x: auto; }
+    h3 {
+      font-size: 1.02rem;
+      color: #2980b9;
+      margin: 0.75rem 0 0.4rem 0;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 0.75rem;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.9rem;
-      min-width: 500px;
+      min-width: 580px;
     }
     th, td {
       border: 1px solid #d0d7de;
-      padding: 0.5rem 0.65rem;
+      padding: 0.55rem 0.7rem;
       text-align: left;
       vertical-align: top;
+      word-break: break-word;
     }
     th {
       background: #eaf1fb;
       font-weight: 600;
-      white-space: nowrap;
+      color: #1e3a5f;
+    }
+    tr:nth-child(even) td {
+      background: #fafbfc;
     }
     .placeholder {
       background: #fff8e1;
@@ -74,21 +108,111 @@
       font-weight: 600;
       color: #2980b9;
     }
-    .qa { margin-bottom: 0.75rem; }
+    .qa { margin-bottom: 1rem; }
     .qa p.question {
       font-weight: 600;
       color: #1e3a5f;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
     }
-    .qa p.answer { margin-left: 0.5rem; }
+    .qa p.answer {
+      margin-left: 0.25rem;
+      text-align: justify;
+      color: #24292f;
+      font-size: 0.92rem;
+    }
+    code {
+      background: #f0f3f6;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 0.88em;
+      color: #0969da;
+    }
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 0.85rem;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+    .cmd-box {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-left: 4px solid #2980b9;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin: 0.75rem 0;
+    }
+    .evidence-list {
+      list-style: none;
+      padding: 0;
+    }
+    .evidence-list li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #eef2f6;
+      font-size: 0.9rem;
+    }
+    .evidence-list li:last-child {
+      border-bottom: none;
+    }
+    .evidence-list a {
+      color: #0969da;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .evidence-list a:hover {
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .badge-success { background: #dcfce7; color: #166534; }
+    .badge-warning { background: #fef9c3; color: #854d0e; }
+    .badge-info { background: #e0f2fe; color: #075985; }
+    .highlight-note {
+      background: #eef6fc;
+      border-left: 4px solid #2980b9;
+      padding: 0.65rem 0.9rem;
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      border-radius: 0 4px 4px 0;
+    }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem; }
+      header { padding: 1rem; }
+      header h1 { font-size: 1.25rem; }
+      section { padding: 0.9rem; }
+      table { font-size: 0.82rem; min-width: 520px; }
+      th, td { padding: 0.45rem 0.5rem; }
+      pre { font-size: 0.78rem; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Bài 1 – Hello Cloud API</h1>
-  <p>Đỗ Tuấn Kiệt – MSSV 2324802010265</p>
+  <h1>Báo cáo Thực hành Điện toán đám mây</h1>
+  <p>Đỗ Tuấn Kiệt – MSSV: 2324802010265 – GitHub: TKiet-Do</p>
 </header>
+
+<div class="lab-banner">
+  <span>PHẦN BÀI 1 – HELLO CLOUD API &amp; 5 ĐẶC TÍNH NIST</span>
+  <span class="lab-tag">Bài thực hành 1</span>
+</div>
 
 <!-- ======================== A. BẢNG SO SÁNH ======================== -->
 <section>
@@ -195,8 +319,255 @@
   </div>
 </section>
 
-<footer style="text-align:center; color:#888; font-size:0.8rem; padding:1rem 0;">
-  Điện toán đám mây – Bài thực hành 1 – Đỗ Tuấn Kiệt – 2324802010265
+<!-- =================================================================== -->
+<!--                      PHẦN BÀI 2 – CONTAINER & CLOUDSIM              -->
+<!-- =================================================================== -->
+<div class="lab-banner">
+  <span>PHẦN BÀI 2 – CONTAINER HÓA (DOCKER, GHCR) &amp; MÔ PHỎNG CLOUDSIM PLUS</span>
+  <span class="lab-tag">Bài thực hành 2</span>
+</div>
+
+<!-- ======================== D. PACKAGE GHCR & DOCKERFILE ======================== -->
+<section>
+  <h2>D. Container Package (GHCR) &amp; Dockerfile</h2>
+  <div class="cmd-box">
+    <p style="margin-bottom: 0.4rem; font-weight: 600; color: #1e3a5f;">
+      Kho lưu trữ container image trên GitHub Packages (GHCR):
+    </p>
+    <p style="margin-bottom: 0.5rem;">
+      <a href="https://github.com/users/TKiet-Do/packages/container/package/notes-api" target="_blank" rel="noopener noreferrer" style="color:#0969da; font-weight:600; text-decoration:none;">
+        🔗 https://github.com/users/TKiet-Do/packages/container/package/notes-api
+      </a>
+    </p>
+    <p style="margin-bottom: 0.3rem; font-weight: 600; color: #1e3a5f;">Lệnh tải image công khai từ GHCR:</p>
+    <pre><code>docker pull ghcr.io/tkiet-do/notes-api:1.0</code></pre>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+      Tập tin đặc tả đóng gói container: 
+      <a href="../Dockerfile" target="_blank" style="color:#0969da; font-weight:600;">Dockerfile trong repository</a>
+      (sử dụng base image <code>node:22-alpine</code>, thiết lập người dùng không đặc quyền <code>USER node</code> và lắng nghe cổng <code>3000</code>).
+    </p>
+  </div>
+</section>
+
+<!-- ======================== E. BẢNG 1: CODESPACE VS CONTAINER ======================== -->
+<section>
+  <h2>E. Bảng 1: So sánh Máy ảo (GitHub Codespace) và Container (notes2)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 22%;">Tiêu chí</th>
+          <th style="width: 39%;">GitHub Codespace (Máy ảo VM)</th>
+          <th style="width: 39%;">Container notes2 (Docker)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Thời gian khởi động</strong></td>
+          <td>
+            <strong>~40 giây</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Thời gian từ lúc tạo Codespace đến khi terminal sẵn sàng, lấy từ số liệu Bài 1)</span>
+          </td>
+          <td>
+            <strong>Trung bình 3 lần ≈ 0.412 s</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Lần 1: 0.412s | Lần 2: 0.405s | Lần 3: 0.420s; đo thực tế bằng lệnh <code>time docker run</code>)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Kích thước &amp; Lưu trữ</strong></td>
+          <td>
+            <strong>15 GB-tháng hạn mức đĩa</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Dung lượng ổ đĩa ảo theo hạn mức lưu trữ của tài khoản GitHub Free)</span>
+          </td>
+          <td>
+            <strong>251 MB disk usage, 63.3 MB content size</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Kích thước image <code>notes-api:1.0</code> tối ưu nhờ nền <code>node:22-alpine</code>)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Nhân hệ điều hành (Kernel)</strong></td>
+          <td>
+            <strong>Linux 6.8.0-1064-azure</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Nhân hệ điều hành khách riêng biệt chạy trên môi trường ảo hóa Azure)</span>
+          </td>
+          <td>
+            <strong>Linux 6.8.0-1070-azure</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Ngoài máy chủ host và trong container đều là <code>6.8.0-1070-azure</code>, chứng minh container dùng chung nhân với máy chủ host)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Mức độ cô lập (Isolation)</strong></td>
+          <td>
+            <strong>Cô lập mạnh mẽ qua Hypervisor</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Ảo hóa cấp độ phần cứng; máy ảo sở hữu hệ điều hành khách và nhân kernel độc lập)</span>
+          </td>
+          <td>
+            <strong>Dùng chung nhân hệ điều hành</strong><br>
+            <span style="font-size:0.85rem; color:#555;">(Cô lập mức tiến trình không gian người dùng thông qua Linux Namespaces và cgroups)</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-note">
+    <strong>Minh chứng giới hạn tài nguyên bộ nhớ (từ <code>docker stats</code>):</strong><br>
+    • Container <code>notes2</code> (chạy với cờ <code>--memory 128m</code>): tiêu thụ <strong>12.87MiB / 128MiB</strong> (tỷ lệ <strong>10.06%</strong> trần cgroups cho phép).<br>
+    • Container <code>notes1</code> (không áp đặt giới hạn bộ nhớ): tiêu thụ <strong>12.89MiB / 7.756GiB</strong> (tỷ lệ <strong>0.16%</strong> toàn bộ RAM máy chủ host).
+  </div>
+</section>
+
+<!-- ======================== F. BẢNG 2: CLOUDSIM PLUS ======================== -->
+<section>
+  <h2>F. Bảng 2: Kết quả Thực nghiệm Mô phỏng Đám mây (CloudSim Plus)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Lần chạy</th>
+          <th style="width: 25%;">Thay đổi</th>
+          <th style="width: 20%;">Thời điểm hoàn thành cloudlet cuối (giây)</th>
+          <th style="width: 45%;">Nhận xét chi tiết</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-info">Lần 0</span></td>
+          <td>Giữ nguyên cấu hình mặc định ban đầu</td>
+          <td><strong>20.1</strong></td>
+          <td>
+            Tất cả 4 cloudlet (ID 0, 1, 2, 3) đều hoàn thành với trạng thái <span class="badge badge-success">SUCCESS</span> tại giây 20.1 (thời gian thực thi 20.0s sau khi bắt đầu lúc 0.1s). Tài nguyên được đáp ứng đầy đủ, không phát sinh độ trễ.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">Lần 1</span></td>
+          <td>Tăng số lượng <code>VMS</code> từ 2 lên 4</td>
+          <td><strong>45.6</strong></td>
+          <td>
+            <code>Vm 2</code> và <code>Vm 3</code> bị đưa vào danh sách thất bại (failed list) do Host chỉ có 8 lõi mà 4 VM đòi hỏi tổng cộng 16 lõi (4 × 4 = 16 &gt; 8 lõi); chỉ có <code>Vm 0</code> và <code>Vm 1</code> được tạo và hoạt động. Broker phải thử lại việc tạo VM nhiều lần trước khi hủy yêu cầu, dẫn đến các cloudlet bắt đầu trễ tại giây 25.6 thay vì 0.1, hoàn thành lúc 45.6s.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">Lần 2</span></td>
+          <td>Tăng số lượng <code>CLOUDLETS</code> từ 4 lên 8</td>
+          <td><strong>65.7</strong></td>
+          <td>
+            Nhật ký hệ thống ghi nhận <em>"All 8 waiting Cloudlets submitted"</em>, tuy nhiên bảng kết quả chỉ liệt kê 4 cloudlet hoàn thành trạng thái <span class="badge badge-success">SUCCESS</span> (Cloudlet 0, 1, 2, 3 với FinishTime 65.7s), kèm cảnh báo <em>"Some events may have been missed"</em> do VM bị hủy khi còn cloudlet chờ/chạy (thiếu RAM và Bandwidth). Không bịa số liệu cho 4 cloudlet còn lại vì mô phỏng đã kết thúc trước khi chúng hoàn thành.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-info">Lần 3</span></td>
+          <td>Đổi chính sách lập lịch sang <code>CloudletSchedulerSpaceShared</code></td>
+          <td><strong>20.1</strong></td>
+          <td>
+            Thời gian hoàn thành bằng đúng lần 0 (20.1s) vì mỗi VM có 4 lõi CPU, hoàn toàn đủ cho 2 cloudlet (mỗi cloudlet chỉ yêu cầu 2 lõi CPU: 2 × 2 = 4 lõi) chạy đồng thời mà không xảy ra hiện tượng tranh chấp lõi. Do tài nguyên lõi được thỏa mãn tức thời, chính sách Space-Shared không phải xếp hàng chờ và đạt hiệu năng tương đương Time-Shared.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ======================== G. CÂU HỎI PHẢN BIỆN BÀI 2 ======================== -->
+<section>
+  <h2>G. Câu hỏi phản biện Bài 2</h2>
+
+  <div class="qa">
+    <p class="question">
+      1. Vì sao container notes2 vẫn báo thông số memoryGB bằng dung lượng RAM máy chủ dù đã cấu hình giới hạn 128MB? Cần lưu ý gì khi chạy ứng dụng Node.js hoặc Java trong container?
+    </p>
+    <p class="answer">
+      Khi thực hiện truy vấn API từ bên trong container <code>notes2</code>, giá trị thuộc tính <code>memoryGB</code> trả về là 7.8 GB, hoàn toàn trùng khớp với dung lượng bộ nhớ vật lý của máy chủ host. Nguyên nhân kỹ thuật là do hàm <code>os.totalmem()</code> và <code>os.cpus()</code> của Node.js đọc thông tin trực tiếp từ hệ thống tệp ảo <code>/proc/meminfo</code> và <code>/proc/cpuinfo</code> của nhân Linux máy chủ dùng chung. Trong khi đó, Docker thực hiện giới hạn tài nguyên bằng cơ chế Control Groups (cgroups) ở mức nhân hệ điều hành, vốn chỉ áp đặt trần sử dụng tài nguyên chứ không cô lập hay che giấu cấu trúc phần cứng của host. Minh chứng rõ rệt là trong lệnh <code>docker stats</code>, chỉ số <code>MEM USAGE / LIMIT</code> của <code>notes2</code> bị giới hạn nghiêm ngặt ở mức 12.87MiB / 128MiB (chiếm 10.06%), trong khi <code>notes1</code> nhận toàn bộ 7.756GiB. Điều này dẫn đến nguy cơ nghiêm trọng đối với các runtime như Node.js (V8) hay Java (JVM): nếu runtime tự động tính toán kích thước heap hoặc số lượng luồng thực thi dựa trên phần cứng máy chủ host, bộ nhớ tiêu thụ thực tế sẽ nhanh chóng vượt quá hạn mức 128MB và tiến trình sẽ bị nhân Linux kích hoạt Out-Of-Memory (OOM) Killer tiêu diệt tức thì. Để vận hành an toàn trong môi trường container, lập trình viên bắt buộc phải thiết lập tham số giới hạn heap tường minh (ví dụ <code>--max-old-space-size</code> đối với Node.js, <code>-XX:MaxRAMPercentage</code> đối với JVM) hoặc sử dụng các phiên bản runtime hiện đại có khả năng tự động nhận diện giới hạn cgroups từ đường dẫn <code>/sys/fs/cgroup</code>.
+    </p>
+  </div>
+
+  <div class="qa">
+    <p class="question">
+      2. Phân biệt cơ chế Time-shared và Space-shared trong mô phỏng CloudSim. Vì sao kết quả Lần 3 bằng Lần 0 và khi thiết kế gói dịch vụ giá rẻ nên chọn chính sách nào?
+    </p>
+    <p class="answer">
+      Về mặt lý thuyết điều phối tài nguyên, cơ chế Time-shared phân chia năng lực tính toán của các lõi CPU thành các lát thời gian (time slices) ngắn nhằm thực thi luân phiên nhiều tác vụ, cho phép các cloudlet chạy song song xen kẽ; ngược lại, cơ chế Space-shared cấp phát độc quyền số lõi được yêu cầu cho từng tác vụ và buộc các tác vụ đến sau phải xếp hàng chờ cho đến khi có lõi được giải phóng hoàn toàn. Trong thực nghiệm Lần 3 của bài lab, thời điểm hoàn thành của cloudlet cuối cùng đạt 20.1 giây mô phỏng, bằng đúng với kết quả Lần 0 sử dụng Time-shared. Cần nhìn nhận thẳng thắn rằng kết quả thời gian bằng nhau này xuất phát từ việc kịch bản thực nghiệm không phát sinh sự tranh chấp lõi CPU: mỗi máy ảo VM sở hữu 4 lõi, trong khi mỗi VM chỉ tiếp nhận 2 cloudlet với nhu cầu 2 lõi mỗi tác vụ (tổng số lõi cần là 2 × 2 = 4 lõi, vừa khít năng lực VM), do đó cả 2 cloudlet đều được cấp phát lõi tức thời mà không phải xếp hàng chờ đợi. Chính vì vậy, bộ số liệu thực nghiệm trong bài lab chưa tạo ra điều kiện phân hóa để phân biệt được sự khác biệt về mặt hiệu năng giữa hai chính sách điều phối. Khi thiết kế các gói dịch vụ đám mây giá rẻ (budget/shared tiers), nhà cung cấp hạ tầng thường ưu tiên lựa chọn chính sách Time-shared. Việc chia sẻ tài nguyên theo thời gian cho phép nhà cung cấp gom nhiều máy ảo và tác vụ người dùng lên cùng một máy chủ vật lý theo cơ chế vượt mức (overcommit), qua đó nâng cao đáng kể tỷ lệ sử dụng tài nguyên (resource utilization) và hạ giá thành dịch vụ, đổi lại hiệu năng tính toán của người dùng sẽ kém ổn định và khó dự đoán hơn; đây là lập luận phân tích kiến trúc hạ tầng mang tính tổng quát chứ không suy ra trực tiếp từ số liệu đo lường lý tưởng của bài lab.
+    </p>
+  </div>
+
+  <div class="qa">
+    <p class="question">
+      3. Việc sử dụng công cụ mô phỏng giúp ích gì trước khi thuê hạ tầng đám mây thực tế và những sai lệch so với thực tế bắt nguồn từ đâu?
+    </p>
+    <p class="answer">
+      Việc ứng dụng công cụ mô phỏng như CloudSim Plus mang lại lợi ích thiết thực trước khi doanh nghiệp quyết định thuê hạ tầng thực tế nhờ khả năng thử nghiệm đa dạng các kịch bản cấu hình phần cứng và chính sách lập biểu một cách nhanh chóng, lặp lại được và hoàn toàn không tốn kém chi phí. Thông qua việc giả lập, kỹ sư hệ thống có thể sớm phát hiện các điểm nghẽn nghiêm trọng về năng lực cấp phát tài nguyên, điển hình như hiện tượng máy ảo bị từ chối cấp phát và rơi vào danh sách thất bại (failed list) do thiếu hụt lõi CPU như đã quan sát ở Lần 1, từ đó đưa ra dự toán cấu hình sát với nhu cầu thực tế. Tuy nhiên, kết quả thu được từ mô phỏng luôn tồn tại độ sai lệch nhất định so với môi trường đám mây thực tế do các mô hình toán học đã được đơn giản hóa ở mức độ cao. Trong môi trường thực tế, các máy ảo thường xuyên chịu ảnh hưởng từ hiện tượng "hàng xóm ồn ào" (noisy neighbor) do các đối tượng khác trên cùng máy chủ vật lý tranh chấp tài nguyên, một yếu tố hoàn toàn vắng bóng trong môi trường mô phỏng cô lập. Ngoài ra, mô phỏng bỏ qua các yếu tố biến động phức tạp của thế giới thực như độ trễ mạng bất định (network latency), tỷ lệ thất thoát gói tin, hiện tượng nghẽn cổ chai I/O của hệ thống lưu trữ đĩa phân tán và nguy cơ lỗi phần cứng ngẫu nhiên. Đặc biệt, tải công việc thực tế luôn biến động ngẫu nhiên theo thời gian thay vì mang tải cố định theo số lượng chỉ thị lệnh (MI) như các cloudlet trong mô hình, do đó kết quả mô phỏng chỉ mang giá trị định hướng sơ bộ và không thể thay thế việc đo đạc, kiểm thử tải trên hạ tầng thực tế.
+    </p>
+  </div>
+</section>
+
+<!-- ======================== H. MINH CHỨNG THỰC NGHIỆM ======================== -->
+<section>
+  <h2>H. Danh mục Minh chứng Thực nghiệm</h2>
+  <p style="margin-bottom: 0.6rem; font-size: 0.92rem;">
+    Toàn bộ số liệu trong báo cáo được trích xuất trực tiếp từ các tệp nhật ký thực thi thực tế trong repository:
+  </p>
+  <ul class="evidence-list">
+    <li>
+      ⏱️ Đo thời gian khởi động container (3 lần): 
+      <a href="evidence/startup-time.txt" target="_blank"><code>docs/evidence/startup-time.txt</code></a>
+      (trung bình 3 lần: 0.412s, 0.405s, 0.420s ≈ 0.412 s)
+    </li>
+    <li>
+      📊 Giới hạn tài nguyên và thống kê container: 
+      <a href="evidence/docker-stats.txt" target="_blank"><code>docs/evidence/docker-stats.txt</code></a>
+      (notes2: 12.87MiB / 128MiB; notes1: 12.89MiB / 7.756GiB)
+    </li>
+    <li>
+      📦 Dung lượng và kích thước image: 
+      <a href="evidence/docker-images.txt" target="_blank"><code>docs/evidence/docker-images.txt</code></a>
+      (notes-api:1.0 – Disk Usage 251MB, Content Size 63.3MB)
+    </li>
+    <li>
+      🐧 Minh chứng phiên bản nhân hệ điều hành: 
+      <a href="evidence/kernel.txt" target="_blank"><code>docs/evidence/kernel.txt</code></a>
+      (Ngoài và trong container đều là Linux 6.8.0-1070-azure, dùng chung nhân)
+    </li>
+    <li>
+      🌐 Dữ liệu JSON phản hồi từ container notes1: 
+      <a href="evidence/api-notes1.json" target="_blank"><code>docs/evidence/api-notes1.json</code></a>
+    </li>
+    <li>
+      🌐 Dữ liệu JSON phản hồi từ container notes2: 
+      <a href="evidence/api-notes2.json" target="_blank"><code>docs/evidence/api-notes2.json</code></a>
+    </li>
+    <li>
+      🌐 Dữ liệu JSON kiểm tra pull image từ GHCR: 
+      <a href="evidence/pull-test.json" target="_blank"><code>docs/evidence/pull-test.json</code></a>
+    </li>
+    <li>
+      ☁️ Kết quả mô phỏng CloudSim Lần 0: 
+      <a href="evidence/cloudsim-run0.txt" target="_blank"><code>docs/evidence/cloudsim-run0.txt</code></a>
+      (Mặc định, hoàn thành lúc 20.1s)
+    </li>
+    <li>
+      ☁️ Kết quả mô phỏng CloudSim Lần 1: 
+      <a href="evidence/cloudsim-run1.txt" target="_blank"><code>docs/evidence/cloudsim-run1.txt</code></a>
+      (VMS 2→4, VM 2 &amp; 3 failed, bắt đầu lúc 25.6s, hoàn thành lúc 45.6s)
+    </li>
+    <li>
+      ☁️ Kết quả mô phỏng CloudSim Lần 2: 
+      <a href="evidence/cloudsim-run2.txt" target="_blank"><code>docs/evidence/cloudsim-run2.txt</code></a>
+      (CLOUDLETS 4→8, hoàn thành 4 cloudlet lúc 65.7s, cảnh báo missed events)
+    </li>
+    <li>
+      ☁️ Kết quả mô phỏng CloudSim Lần 3: 
+      <a href="evidence/cloudsim-run3.txt" target="_blank"><code>docs/evidence/cloudsim-run3.txt</code></a>
+      (CloudletSchedulerSpaceShared, hoàn thành lúc 20.1s)
+    </li>
+    <li>
+      ☕ Mã nguồn kịch bản mô phỏng Java: 
+      <a href="../cloudsim/BasicFirstExample.java" target="_blank"><code>cloudsim/BasicFirstExample.java</code></a>
+    </li>
+  </ul>
+</section>
+
+<footer style="text-align:center; color:#888; font-size:0.8rem; padding:1.25rem 0;">
+  Điện toán đám mây – Báo cáo Thực hành Bài 1 &amp; Bài 2 – Đỗ Tuấn Kiệt – MSSV 2324802010265
 </footer>
 
 </body>
