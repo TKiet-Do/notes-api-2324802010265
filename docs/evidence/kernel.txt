@@ -1,0 +1,2 @@
+Ngoai container: 6.8.0-1070-azure
+Trong container: 6.8.0-1070-azure

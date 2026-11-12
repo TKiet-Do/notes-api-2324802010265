@@ -1,0 +1,111 @@
+[H[2J[3J
+This script allows you to build CloudSim Plus Examples and execute some of them.
+It requires maven to build all sources and create the JAR packages. Thus, make sure you have it installed.
+https://cloudsimplus.org
+
+Running the requested example org.cloudsimplus.examples.BasicFirstExample:
+	java -cp target/cloudsimplus-examples-*-with-dependencies.jar org.cloudsimplus.examples.BasicFirstExample
+
+07:26:51,920 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version ?
+07:26:51,922 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - No custom configurators were discovered as a service.
+07:26:51,922 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+07:26:51,923 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+07:26:51,924 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+07:26:51,924 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+07:26:51,931 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 2 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+07:26:51,931 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+07:26:51,932 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+07:26:51,933 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+07:26:51,935 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [jar:file:/tmp/cloudsimplus-examples/target/cloudsimplus-examples-9.0.0-SNAPSHOT-with-dependencies.jar!/logback.xml]
+07:26:51,936 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@1c72da34 - Resource [logback.xml] occurs multiple times on the classpath.
+07:26:51,936 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@1c72da34 - Resource [logback.xml] occurs at [jar:file:/tmp/cloudsimplus-examples/target/cloudsimplus-examples-9.0.0-SNAPSHOT-with-dependencies.jar!/logback.xml]
+07:26:51,936 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@1c72da34 - Resource [logback.xml] occurs at [jar:file:/home/codespace/.m2/repository/org/cloudsimplus/cloudsimplus/9.0.0-SNAPSHOT/cloudsimplus-9.0.0-20261106.074659-34.jar!/logback.xml]
+07:26:51,943 |-INFO in ConfigurationWatchList(mainURL=jar:file:/tmp/cloudsimplus-examples/target/cloudsimplus-examples-9.0.0-SNAPSHOT-with-dependencies.jar!/logback.xml, fileWatchList={}, urlWatchList=[}) - URL [jar:file:/tmp/cloudsimplus-examples/target/cloudsimplus-examples-9.0.0-SNAPSHOT-with-dependencies.jar!/logback.xml] is not of type file
+07:26:52,100 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
+07:26:52,100 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+07:26:52,109 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+07:26:52,164 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - BEWARE: Writing to the console can be very slow. Avoid logging to the 
+07:26:52,164 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - console in production environments, especially in high volume systems.
+07:26:52,164 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also https://logback.qos.ch/codes.html#slowConsole
+07:26:52,164 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+07:26:52,164 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
+07:26:52,165 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@64d7f7e0 - End of configuration.
+07:26:52,165 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@27c6e487 - Registering current configuration as safe fallback point
+07:26:52,165 |-INFO in ch.qos.logback.classic.util.ContextInitializer@49e202ad - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 233 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+
+[34mINFO  
+================== Starting CloudSim Plus 9.0.0 ==================
+
+[0;39m[34mINFO  0.00: #Datacenter 1 is starting...
+[0;39m[34mINFO  Broker 2 is starting...
+[0;39m[34mINFO  0.00: DatacenterBrokerSimple2: 1 datacenter(s) found.
+[0;39m[34mINFO  0.00: DatacenterBrokerSimple2: Trying to create Vm 0 inside #Datacenter 1
+[0;39m[34mINFO  0.00: DatacenterBrokerSimple2: Trying to create Vm 1 inside #Datacenter 1
+[0;39m[34mINFO  0.00: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  0.00: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[34mINFO  Entities started.
+[0;39m[34mINFO  0.00: HostSimple: Vm 0 is booting up right away in Host 0/#DC 1, since no startup delay (boot time) was set.
+[0;39m[34mINFO  0.00: VmPlacementPolicySimple: Vm 0 has been allocated to Host 0/#DC 1
+[0;39m[34mINFO  0.00: HostSimple: Vm 1 is booting up right away in Host 0/#DC 1, since no startup delay (boot time) was set.
+[0;39m[34mINFO  0.00: VmPlacementPolicySimple: Vm 1 has been allocated to Host 0/#DC 1
+[0;39m[31mWARN  0.00: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  0.00: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[1;31mERROR 0.10: DatacenterBrokerSimple2: 2 of the requested 4 VMs couldn't be created because suitable Hosts weren't found in any available Datacenter.
+[0;39m[34mINFO  5.10: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  5.10: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[31mWARN  5.10: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  5.10: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[1;31mERROR 5.20: DatacenterBrokerSimple2: 2 of the requested 4 VMs couldn't be created because suitable Hosts weren't found in any available Datacenter.
+[0;39m[34mINFO  10.20: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  10.20: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[31mWARN  10.20: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  10.20: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[1;31mERROR 10.30: DatacenterBrokerSimple2: 2 of the requested 4 VMs couldn't be created because suitable Hosts weren't found in any available Datacenter.
+[0;39m[34mINFO  15.30: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  15.30: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[31mWARN  15.30: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  15.30: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[1;31mERROR 15.40: DatacenterBrokerSimple2: 2 of the requested 4 VMs couldn't be created because suitable Hosts weren't found in any available Datacenter.
+[0;39m[34mINFO  20.40: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  20.40: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[31mWARN  20.40: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  20.40: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[1;31mERROR 20.50: DatacenterBrokerSimple2: 2 of the requested 4 VMs couldn't be created because suitable Hosts weren't found in any available Datacenter.
+[0;39m[34mINFO  25.50: DatacenterBrokerSimple2: Trying to create Vm 2 inside #Datacenter 1
+[0;39m[34mINFO  25.50: DatacenterBrokerSimple2: Trying to create Vm 3 inside #Datacenter 1
+[0;39m[31mWARN  25.50: VmPlacementPolicySimple: No suitable host found for Vm 2 in #Datacenter 1
+[0;39m[31mWARN  25.50: VmPlacementPolicySimple: No suitable host found for Vm 3 in #Datacenter 1
+[0;39m[31mWARN  25.60: DatacenterBrokerSimple2: Vm 2 has been moved to the failed list because creation retry is disabled or the max number of retries was reached.
+[0;39m[31mWARN  25.60: DatacenterBrokerSimple2: Vm 3 has been moved to the failed list because creation retry is disabled or the max number of retries was reached.
+[0;39m[34mINFO  25.60: DatacenterBrokerSimple2: Sending Cloudlet 0 to Vm 0 inside Host 0/#DC 1.
+[0;39m[34mINFO  25.60: DatacenterBrokerSimple2: Sending Cloudlet 1 to Vm 1 inside Host 0/#DC 1.
+[0;39m[34mINFO  25.60: DatacenterBrokerSimple2: Sending Cloudlet 2 to Vm 0 inside Host 0/#DC 1.
+[0;39m[34mINFO  25.60: DatacenterBrokerSimple2: Sending Cloudlet 3 to Vm 1 inside Host 0/#DC 1.
+[0;39m[34mINFO  25.60: DatacenterBrokerSimple2: All 4 waiting Cloudlets submitted to some VM.
+[0;39m[34mINFO  45.60: DatacenterBrokerSimple2: Cloudlet 0 finished in Vm 0 and returned to broker.
+[0;39m[34mINFO  45.60: DatacenterBrokerSimple2: Cloudlet 2 finished in Vm 0 and returned to broker.
+[0;39m[34mINFO  45.60: DatacenterBrokerSimple2: Cloudlet 1 finished in Vm 1 and returned to broker.
+[0;39m[34mINFO  45.60: DatacenterBrokerSimple2: Cloudlet 3 finished in Vm 1 and returned to broker.
+[0;39m[34mINFO  45.71: Processing last events before simulation shutdown.
+[0;39m[34mINFO  45.71: DatacenterBrokerSimple2 is shutting down...
+[0;39m[34mINFO  45.71: VmSimple: Requesting Vm 1 destruction on Host 0/#DC 1. Shutdown will finish immediately (since no Vm shutDownDelay was set).
+[0;39m[34mINFO  45.71: VmSimple: Requesting Vm 0 destruction on Host 0/#DC 1. Shutdown will finish immediately (since no Vm shutDownDelay was set).
+[0;39m[34mINFO  45.71: #Datacenter 1: Vm 1 destroyed on Host 0/#DC 1. 
+[0;39m[34mINFO  45.71: #Datacenter 1: Vm 0 destroyed on Host 0/#DC 1. 
+[0;39m[34mINFO  Simulation: No more future events
+
+[0;39m[34mINFO  
+================== Simulation finished at time 45.71 ==================
+
+[0;39m
+
+                                           SIMULATION RESULTS
+
+|Cloudlet| Status|DC|Host|Host Cores|VM| VM Cores|CloudletLen|FinishedLen|CloudletCores|StartTime|FinishTime|ExecTime
+|--------|-------|--|----|----------|--|---------|-----------|-----------|-------------|---------|----------|--------
+|      ID|       |ID|  ID| CPU cores|ID|CPU cores|         MI|         MI|    CPU cores|  Seconds|   Seconds| Seconds
+|       0|SUCCESS| 1|   0|         8| 0|        4|      10000|      10000|            2|     25.6|      45.6|    20.0
+|       2|SUCCESS| 1|   0|         8| 0|        4|      10000|      10000|            2|     25.6|      45.6|    20.0
+|       1|SUCCESS| 1|   0|         8| 1|        4|      10000|      10000|            2|     25.6|      45.6|    20.0
+|       3|SUCCESS| 1|   0|         8| 1|        4|      10000|      10000|            2|     25.6|      45.6|    20.0
+
