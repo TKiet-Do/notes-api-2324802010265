@@ -1,9 +1,20 @@
 const express = require('express');
 const os = require('os');
-const notesRouter = require('./routes/notes');
-const app = express();
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const mongoose = require('mongoose');
 
-app.use(express.json());
+mongoose.set('sanitizeFilter', true); // lớp phòng thủ thứ hai chống NoSQL injection
+
+const notesRouter = require('./routes/notes');
+const authRouter = require('./routes/auth');
+
+const app = express();
+app.set('trust proxy', 1);            // Codespaces và Vercel đứng sau proxy
+app.use(helmet());                    // các header bảo mật HTTP
+app.use(express.json({ limit: '100kb' }));
+
+app.use('/auth', rateLimit({ windowMs: 15 * 60 * 1000, limit: 20 }), authRouter);
 
 app.get('/', (req, res) => {
   res.json({
